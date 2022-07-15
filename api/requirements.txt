@@ -3,7 +3,6 @@ Django
 django-filter
 djangorestframework
 djangorestframework-simplejwt
-importlib-metadata
 pkg-resources
 PyJWT
 python-dotenv
