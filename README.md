@@ -8,7 +8,7 @@ To locally run the provided Postman collection against your backend, execute:
 ```
 POST=3000 npm start
 ```
-
+npm start is for react
 
 ## Considerations for your backend with [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 
