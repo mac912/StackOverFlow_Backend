@@ -10,14 +10,14 @@ services:
             POSTGRES_PASSWORD: manish
             POSTGRES_DB: mydb
       ports:
-         - 5433:5432
+         - 5432:5432
     djos:
       image: django_os_five
       restart: always
       depends_on:  #(--link for linking to other container)
          - dbos
       ports:       # for exposing the container
-         - 8002:8000
+         - 8000:8000
       environment:
             POSTGRES_USER: manish
             POSTGRES_PASSWORD: manish
