@@ -1,5 +1,5 @@
 job("my-job1") {
-  description("This job will pull the github repo on every push, update the container using given Dockerfile and push image to DockerHub")
+  description("This job will pull the github repo on every push")
  
   scm {
     github('mac912/StackOverFlow_Backend','main')
@@ -20,13 +20,13 @@ job("my-job1") {
 
 
 job("my-job2") {
-  description("This will run on slave nodes and control K8S.")
+  description("This will build the job and run a docker-compose infrastructure.")
   triggers {
     upstream('my-job1', 'SUCCESS')
   }
  
   command = """
-  docker build -t django_os_five /var/lib/jenkins/workspace/my-job2
+  docker build -t django_os_five /var/lib/jenkins/workspace/my-job1
   docker-compose up
 """
  
@@ -53,7 +53,7 @@ job("my-job3") {
           attachBuildLog(true)
           subject('Build successfull')
           content('The build was successful and deployment was done.')
-          recipientList('manishdwarkas912@gmail.com')
+          recipientList('heymanishsaini@gmail.com')
         }
         failure{
           attachBuildLog(true)
