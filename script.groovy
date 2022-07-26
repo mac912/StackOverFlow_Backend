@@ -26,7 +26,7 @@ job("my-job2") {
   }
  
   command = """
-  docker build -t django_os_five /home/manish/Desktop/mydockerfile
+  docker build -t django_os_five /var/lib/jenkins/workspace/my-job2
   docker-compose up
 """
  
