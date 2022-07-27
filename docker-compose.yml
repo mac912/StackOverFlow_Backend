@@ -12,7 +12,7 @@ services:
       ports:
          - 5433:5432
     djos:
-      image: django_os_five
+      image: django_os_server
       restart: always
       depends_on:  #(--link for linking to other container)
          - dbos
