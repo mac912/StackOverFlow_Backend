@@ -26,7 +26,7 @@ job("my-job2") {
   }
  
   command = """
-  docker build -t django_os_five /var/lib/jenkins/workspace/my-job1 --no-cache
+  docker build -t django_os_server /var/lib/jenkins/workspace/my-job1 --no-cache
   docker-compose up
 """
  
