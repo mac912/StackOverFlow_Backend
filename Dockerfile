@@ -5,7 +5,7 @@ RUN apt-get install python3 -y
 RUN apt-get install python3-pip -y
 RUN mkdir my_django_project
 COPY $project_folder /home/my_django_project
-WORKDIR /home/my_django_project
+WORKDIR /home/my_django_project/$project_folder
 RUN ls
 RUN pip install -r requirements.txt
 RUN pip install psycopg2-binary
