@@ -26,8 +26,9 @@ job("my-job2") {
   }
  
   command = """
-  docker build -t django_os_server /var/lib/jenkins/workspace/my-job1 --no-cache
-  docker-compose up
+    project_folder=$(cat proname)
+    docker build -t django_os_server /var/lib/jenkins/workspace/my-job1 project_folder_name=project_folder --no-cache
+    docker-compose up &
 """
  
   steps {
