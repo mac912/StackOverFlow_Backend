@@ -46,7 +46,11 @@ job("my-job3") {
     upstream('my-job2', 'SUCCESS')
   }
   steps {
-    shell(''' echo "job3" ''')
+    shell('''
+    echo "job3"
+    sleep 10
+    docker exec -it my-job2_djos_1 python3 manage.py test
+    ''')
   }
   publishers {
     extendedEmail {
@@ -77,9 +81,9 @@ job("my-job3") {
 
 buildPipelineView('Groovy') {
   filterBuildQueue(true)
-  filterExecutors(true)
+  filterExecutors(false)
   title('Groovy')
-  displayedBuilds(1)
+  displayedBuilds(3)
   selectedJob('my-job1')
   alwaysAllowManualTrigger(false)
   showPipelineParameters(true)
