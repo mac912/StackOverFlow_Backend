@@ -20,7 +20,7 @@ from myapp.views import RegisterApi, CurrentUserData, CustomAuthToken, ProfileVi
 urlpatterns = [
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/users/register/', RegisterApi.as_view()),
+    path('api/users/register/', RegisterApi.as_view(), name="register"),
     path('api/users/currentUserData/', CurrentUserData.as_view()),
     path('api/users/login/', CustomAuthToken.as_view()),
     path('api/profiles/<str:username>/', ProfileView.as_view()),
