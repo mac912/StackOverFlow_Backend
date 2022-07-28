@@ -2,8 +2,6 @@ version: '3'
 services:
     dbos:
       image: postgres
-      volumes:
-         - postgres_storage:/var/lib/postgresql/data
       restart: always  #to keep the container running
       environment:
             POSTGRES_USER: manish
@@ -22,9 +20,3 @@ services:
             POSTGRES_USER: manish
             POSTGRES_PASSWORD: manish
             POSTGRES_DB: mydb
-
-      volumes:      # to mount to the volume
-         - django_storage:/home
-volumes:
-    django_storage:      #to first create the volumes
-    postgres_storage:
