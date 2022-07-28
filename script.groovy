@@ -49,7 +49,7 @@ job("my-job3") {
     shell('''
     echo "job3"
     sleep 10
-    docker exec -it my-job2_djos_1 python3 manage.py test
+    docker exec my-job2_djos_1 python3 manage.py test
     ''')
   }
   publishers {
