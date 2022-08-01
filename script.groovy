@@ -11,6 +11,7 @@ job("my-job1") {
  
   command = """
     echo "pull the code from github"
+    export GIT_COMMIT=$(git log  -1 --format=%h)
             """
  
   steps {
@@ -26,7 +27,7 @@ job("my-job2") {
   }
  
   command = """
-    docker build --build-arg proname=\$(cat /var/lib/jenkins/workspace/my-job1/proname) -t django_os_server /var/lib/jenkins/workspace/my-job1 --no-cache
+    docker build --build-arg proname=\$(cat /var/lib/jenkins/workspace/my-job1/proname) -t django_os_server-v1-$GIT_COMMIT /var/lib/jenkins/workspace/my-job1 --no-cache
     echo "docker compose up"
     docker-compose up -d
     echo "compose up success"
