@@ -19,7 +19,7 @@ job("CD-job2") {
  
   command = """
   docker pull 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
-  docker run -d -p 8000:8000  176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
+  docker run -d -p 5000:8000  176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
 """
  
   steps {
