@@ -11,7 +11,7 @@ job("my-job1") {
  
   command = """
     echo "pull the code from github"
-    export GIT_COMMIT=$(git log  -1 --format=%h)
+    export GIT_COMMIT=\$(git log  -1 --format=%h)
             """
  
   steps {
