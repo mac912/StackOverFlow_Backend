@@ -2,7 +2,7 @@ job("CD-job1") {
   description("This job will login to ecr and tag the image and push the image to ECR")
   command = """
             aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 176660025607.dkr.ecr.us-west-2.amazonaws.com
-            export docker_image = \$(docker images | awk '{print \$1}' | awk 'NR==2')
+            docker_image = \$(docker images | awk '{print \$1}' | awk 'NR==2')
             docker tag docker_image 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
             docker push 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
             """
