@@ -47,13 +47,13 @@ job("CD-job3") {
           attachBuildLog(true)
           subject('Build successfull')
           content('The build was successful and deployment was done.')
-          recipientList('vinithamoorthy22@gmail.com')
+          recipientList('products.notifications@ganitinc.com')
         }
         failure{
           attachBuildLog(true)
           subject('Failed build')
           content('The build was failed')
-          recipientList('vinithamoorthy22@gmail.com')
+          recipientList('products.notifications@ganitinc.com')
         }
       }
     }
