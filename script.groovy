@@ -53,7 +53,7 @@ job("my-job3") {
     docker exec my-job2_djos_1 python3 manage.py makemigrations
     docker exec my-job2_djos_1 python3 manage.py migrate
     docker exec my-job2_djos_1 python3 manage.py test
-    
+    docker tag django_os_server:latest django_os_server:$GIT_COMMIT
     aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 176660025607.dkr.ecr.us-west-2.amazonaws.com
     ''')
   }
