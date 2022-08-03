@@ -27,7 +27,7 @@ job("my-job2") {
   }
  
   command = """
-    docker build --build-arg proname=\$(cat /var/lib/jenkins/workspace/my-job1/proname) -t django_os_server_$GIT_COMMIT:$GIT_COMMIT /var/lib/jenkins/workspace/my-job1 --no-cache
+    docker build --build-arg proname=\$(cat /var/lib/jenkins/workspace/my-job1/proname) -t django_os_server:$GIT_COMMIT /var/lib/jenkins/workspace/my-job1 --no-cache
     echo "docker compose up"
     docker-compose up -d
     echo "compose up success"
