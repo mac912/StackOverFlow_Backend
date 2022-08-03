@@ -1,8 +1,8 @@
 job("CD-job1") {
   description("Pulling docker image from ECR and running on deployment server")
   command = """ 
-  docker pull 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:$Docker_Image
-  docker run -d -p 5000:8000  176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:$Docker_Image
+  docker pull 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
+  docker run -d -p 5000:8000  176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
             """
  
   steps {
