@@ -1,8 +1,16 @@
 job("CD-job1") {
   description("Pulling docker image from ECR and running on deployment server")
   command = """ 
+   
   docker pull 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
-  docker run -d -p 5000:8000  176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
+  if [ $(docker ps -aq --filter name=Production_OS) ]
+  then
+  	docker stop Production_OS
+  	docker rm \$(docker ps -aq --filter name=Production_OS)
+    docker run -d -p 5000:8000  --name Production_OS 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
+  else
+  	docker run -d -p 5000:8000  --name Production_OS 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
+  fi
             """
  
   steps {
