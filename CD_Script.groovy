@@ -3,7 +3,7 @@ job("CD-job1") {
   command = """ 
    
   docker pull 176660025607.dkr.ecr.us-west-2.amazonaws.com/django_repository:latest
-  if [ $(docker ps -aq --filter name=Production_OS) ]
+  if [ \$(docker ps -aq --filter name=Production_OS) ]
   then
   	docker stop Production_OS
   	docker rm \$(docker ps -aq --filter name=Production_OS)
