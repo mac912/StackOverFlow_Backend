@@ -29,7 +29,7 @@ class RegisterApi(generics.GenericAPIView):
         })
 
 class CurrentUserData(APIView):
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
     def get(self, request):
         serializer = UserSerializer(request.user)
